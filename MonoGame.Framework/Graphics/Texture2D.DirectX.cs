@@ -38,6 +38,11 @@ namespace Microsoft.Xna.Framework.Graphics
             GetTexture();
         }
 
+		public void GenerateMipMaps(GraphicsDevice device)
+		{
+			device._d3dContext.GenerateMips(GetShaderResourceView());
+		}
+
         private void PlatformSetData<T>(int level, int arraySlice, Rectangle? rect, T[] data, int startIndex, int elementCount) where T : struct
         {
             var elementSizeInByte = Marshal.SizeOf(typeof(T));
